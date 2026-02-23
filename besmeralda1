@@ -1,0 +1,99 @@
+# 🎫 OSTicket Help Desk Lab
+
+A hands-on IT lab documenting the full deployment and configuration of **OSTicket**, an open-source ticketing system, hosted on a Windows 11 Virtual Machine. This project simulates a real-world IT support environment structured around data center operations.
+
+---
+
+## 🛠️ Technologies Used
+
+- Microsoft Azure (Virtual Machine)
+- Windows 11
+- IIS (Internet Information Services)
+- PHP & PHP Manager
+- MySQL
+- OSTicket
+- C++ Redistributable
+- HeidiSQL
+
+---
+
+## 📋 Lab Overview
+
+### 1. Virtual Machine Setup
+- Provisioned a Windows 11 VM in Azure to serve as the OSTicket admin host
+- Remoted into the VM to begin the installation process
+
+### 2. Pre-Installation Checks
+- Verified the loopback address (`127.0.0.1`) to confirm no existing Windows Server was running before configuring a new one
+
+### 3. Enabling IIS and CGI
+- Manually enabled **IIS (Internet Information Services)** and **CGI** within the Windows VM
+- Verified the changes by loading the loopback address in the VM's browser
+
+### 4. Installing OSTicket Dependencies
+- Installed **PHP Manager** and **URL Rewrite Module**
+- Installed the **C++ Redistributable** required by OSTicket
+- Created a PHP directory on the C: drive and installed the required PHP files
+
+### 5. MySQL Database Setup
+- Installed and configured a **MySQL database** to serve as the OSTicket backend
+
+### 6. IIS and PHP Registration
+- Ran IIS as Administrator
+- Registered the PHP installation through PHP Manager so the web server could recognize it
+
+### 7. OSTicket Installation
+- Installed OSTicket files into the IIS root directory (C: drive)
+- Loaded OSTicket through IIS to verify the installation
+
+### 8. PHP Extension Configuration
+- Enabled all required **OSTicket PHP extensions** to unlock full platform capabilities
+
+### 9. Configuration File Setup
+- Renamed `ost-sampleconfig.php` → `ost-config.php` to allow OSTicket to manage backend configurations
+
+### 10. Final Setup & Admin Login
+- Configured OSTicket admin credentials and connected the MySQL database
+- Successfully logged into OSTicket as an administrator
+
+---
+
+## ⚙️ OSTicket Configuration
+
+### Roles & Departments
+- Created a **Supreme Admin** role with full permissions
+- Configured a **Top Level Department** for high-priority ticket escalation
+
+### Teams & Agents
+- Created a **Data Center Team**
+- Added agents:
+  - **Jane** — Top Level Department / Data Center Team (Network Engineer)
+  - **John** — Support Department (Technician)
+
+### Users
+- Created end user **Karen** within the Agent Panel
+
+### SLA Configuration
+- Configured SLA plans with escalating grace periods based on ticket severity
+- Set operations to **24/7** to mirror real data center availability requirements
+
+### Help Topics
+- Configured multiple help topics, including several tailored to **data center operations**
+
+---
+
+## 🎟️ Ticket Lifecycle Walkthrough
+
+1. **Ticket Created** — End user Karen submitted a ticket reporting that a client could not access cloud resources
+2. **Initial Triage** — Technician John observed the ticket; it was set to high priority with the default SLA, unassigned beyond the Support Department
+3. **Escalation** — Ticket was escalated and reassigned to Jane (Network Engineer) with an updated SLA and a response sent to the end user
+4. **Resolution** — Jane resolved the network connectivity issue and closed the ticket
+
+---
+
+## 💡 Key Takeaways
+
+- Gained hands-on experience deploying and configuring a full help desk ticketing system from scratch
+- Practiced real-world IT support workflows including ticket triage, escalation, and resolution
+- Structured the environment to reflect data center operational standards (24/7 SLAs, tiered roles, team-based escalation)
+- Reinforced skills in IIS administration, PHP configuration, and MySQL database management
